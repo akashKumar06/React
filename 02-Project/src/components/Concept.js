@@ -1,7 +1,6 @@
 import ConceptItem from './ConceptItem';
 import '../index.css';
 const Concepts = (props) => {
-    console.log(props);
     return (
         <ul id='concepts'>
             <ConceptItem
