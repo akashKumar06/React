@@ -3,7 +3,7 @@ import componentsImage from './assets/images/components.png';
 import stateImage from './assets/images/state.png';
 import eventsImage from './assets/images/events.png';
 
-
+import Concepts from './components/Concepts';
 import Header from './components/Header';
 const concepts = [
   {
@@ -35,7 +35,8 @@ function App() {
         <h1>Key React Concepts</h1>
         <p>Selected key React concepts you should know about</p>
       </header> */}
-      <ul id="concepts">
+      <Concepts concepts = {concepts}/>
+      {/* <ul id="concepts">
         <li className="concept">
           <img src={concepts[0].image} alt="TODO: TITLE" />
           <h2>{concepts[0].title}</h2>
@@ -51,7 +52,7 @@ function App() {
           <h2>{concepts[2].title}</h2>
           <p>{concepts[2].description}</p>
         </li>
-      </ul>
+      </ul> */}
     </div>
   );
 }
