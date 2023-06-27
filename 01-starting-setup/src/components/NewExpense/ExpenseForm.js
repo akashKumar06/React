@@ -13,6 +13,19 @@ const ExpenseForm = () => {
     //     enteredAmount: '',
     //     enteredDate:''
     // })
+
+    // const inputChangeHandler = (identifier,value) => {
+    //     if(identifier === "title"){
+    //         setEnteredTitle(value);
+    //     }
+    //     else if(identifier === 'amount'){
+    //         setEnteredAmount(value);
+    //     }
+    //     else{
+    //         setEnteredDate(value);
+    //     }
+    // }
+
     const titleChangeHandler = (event) => {
         setEnteredTitle(event.target.value);
         // setUserInput = {
@@ -32,20 +45,36 @@ const ExpenseForm = () => {
     const dateChangeHandler = (event) => {
         setEnteredDate(event.target.value);
     }
+
+    const submitHandler = (event) => {
+        event.preventDefault();
+
+        const expenseData = {
+            title: enteredTitle,
+            amount: enteredAmount,
+            date: new Date(enteredDate)
+        }
+        console.log(expenseData);
+
+    }
+
     return (
-        <form action="">
+        <form action="" onSubmit = {submitHandler}>
             <div className="new-expense__controls">
                 <div className="new-expense__controls">
                     <label htmlFor="title">Title</label>
                     <input type="text" id="title" onChange={titleChangeHandler}/>
+                    {/* <input type="text" onChange={(event) => {inputChangeHandler('title',event.target.value)}} /> */}
                 </div>
                 <div className="new-expense__controls">
                     <label htmlFor="amount">Amount</label>
-                    <input type="number" min="0.01" step="0.1" id="amount" onChange={amountChangeHandler}/>
+                    <input type="number" onChange={amountChangeHandler}/>
+                    {/* <input type="number" min="0.01" step="0.1" id="amount" onChange={(event) => {inputChangeHandler('amount',event.target.value)}}/> */}
                 </div>
                 <div className="new-expense__controls">
                     <label htmlFor="date">Date</label>
-                    <input type="date" onChange={dateChangeHandler} id="date" min="2019-01-01" max="2023-12-31" />
+                    <input type="date" onChange={dateChangeHandler}/>
+                    {/* <input type="date" onChange={(event) => {inputChangeHandler('date',event.target.value)}} id="date" min="2019-01-01" max="2023-12-31" /> */}
                 </div>
             </div>
             <div className='new-expense__actions'>
