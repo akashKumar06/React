@@ -8,7 +8,7 @@ const TextForm = (props) => {
     const handleUpperCaseClick = (str)=>{
         console.log("Uppercase Clicked");
         let newText = text.toUpperCase();
-        setText(newText);
+        setText(newText); 
     }
 
     const handleOnChange = (event) => {
