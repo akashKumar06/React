@@ -1,0 +1,35 @@
+nav{
+    padding:0.9rem ;
+    height:3rem;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+
+    font-weight:600;
+    font-size:1.2rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav div{
+    font-size: 1.4rem;
+}
+
+nav ul {
+    margin:0px;
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul li{
+    margin: 1.5rem;
+    list-style-type: none;
+    
+}
+
+nav ul li a{
+    text-decoration: none;
+    font-style: italic;
+    color:rebeccapurple;
+}
