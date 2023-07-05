@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 
 import ExpenseItem from "./ExpenseItem";
 import Card from '../UI/Card';
@@ -18,16 +18,17 @@ const Expenses = (props) => {
 
     console.log(filteredExpenses);
     return (
-            <Card className='expenses'>
-                <ExpenseFilter items = {props} selected={filteredYear} onFilterChange={FilterChangeHandler} />
-                {filteredExpenses.map( expense => 
-                    <ExpenseItem 
-                        key={expense.id}
-                        title={expense.title}
-                        amount={expense.amount}
-                        date={expense.date}
+        <Card className='expenses'>
+            <ExpenseFilter items={props} selected={filteredYear} onFilterChange={FilterChangeHandler} />
+            {filteredExpenses.length === 0 && <p>No Expenses found.</p>}
+            {filteredExpenses.length > 0 && filteredExpenses.map(expense =>
+                <ExpenseItem
+                    key={expense.id}
+                    title={expense.title}
+                    amount={expense.amount}
+                    date={expense.date}
                 />)}
-            </Card>
+        </Card>
     )
 
 }
