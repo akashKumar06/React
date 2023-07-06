@@ -51,7 +51,7 @@ const ExpenseForm = (props) => {
 
         const expenseData = {
             title: enteredTitle,
-            amount: enteredAmount,
+            amount: +enteredAmount,
             date: new Date(enteredDate)
         }
 
@@ -65,23 +65,24 @@ const ExpenseForm = (props) => {
     return (
         <form action="" onSubmit = {submitHandler}>
             <div className="new-expense__controls">
-                <div className="new-expense__controls">
+                <div className="new-expense__control">
                     <label htmlFor="title">Title</label>
                     <input value={enteredTitle} type="text" id="title" onChange={titleChangeHandler}/>
                     {/* <input type="text" onChange={(event) => {inputChangeHandler('title',event.target.value)}} /> */}
                 </div>
-                <div className="new-expense__controls">
+                <div className="new-expense__control">
                     <label htmlFor="amount">Amount</label>
                     <input value={enteredAmount} min="0.01" step="0.1" type="number" onChange={amountChangeHandler}/>
                     {/* <input type="number" min="0.01" step="0.1" id="amount" onChange={(event) => {inputChangeHandler('amount',event.target.value)}}/> */}
                 </div>
-                <div className="new-expense__controls">
+                <div className="new-expense__control">
                     <label htmlFor="date">Date</label>
                     <input value={enteredDate} type="date" onChange={dateChangeHandler}/>
                     {/* <input type="date" onChange={(event) => {inputChangeHandler('date',event.target.value)}} id="date" min="2019-01-01" max="2023-12-31" /> */}
                 </div>
             </div>
             <div className='new-expense__actions'>
+                <button type='button' onClick={props.onCancel}>Cancel</button>
                 <button type='submit'>Add Expense</button>
             </div>
         </form>
