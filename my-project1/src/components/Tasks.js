@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Tasks = () => {
+const Tasks = (props) => {
     return (
         <div className='container mt-3'>
-            <h1>I am task</h1>
+            {props.items.map((item)=> (
+                <div key={item.id}>{item.task}</div>
+            ))}
         </div>
     );
 }
