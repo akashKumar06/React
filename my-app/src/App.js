@@ -1,11 +1,12 @@
-import './App.css';
+import Video from './components/Video';
 
-function App() {
-  return (
-    <div className="App">
-      <div className="App-header">Hello World</div>
+function App(){
+  return(
+    <div>
+      <div>Hello</div>
+      <Video></Video>
     </div>
-  );
+  ) 
 }
 
 export default App;
