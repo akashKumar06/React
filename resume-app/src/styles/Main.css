@@ -1,0 +1,34 @@
+main{
+    margin-top:2rem;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding: 2rem 5rem;
+}
+
+.image{
+    flex-basis:50%;
+    margin-right:2rem;
+    padding:0 1rem;
+}
+
+main div img{
+    height:20rem;
+    width:20rem;
+    border-radius: 50%;
+    float:right;
+}
+.main-content{
+    flex-basis: 60%;
+}
+
+.main-button{
+    margin-top:2rem;
+}
+.main-button button{
+    border-radius:1.5rem;
+    margin-right:1.3rem;
+    padding:0.5rem 1.5rem;
+    font-size: 1.2rem;
+}
+

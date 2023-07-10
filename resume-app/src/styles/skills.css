@@ -1,0 +1,10 @@
+.skills{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.skill{
+    margin-right:1.2rem;
+    width: 40%;
+}

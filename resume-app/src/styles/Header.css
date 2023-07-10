@@ -1,0 +1,28 @@
+
+nav{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul{
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav div{
+    margin-left: 1rem;
+    font-size:1.7rem;
+    font-weight:bold;
+}
+
+nav ul li{
+    margin:0.2rem 1.4rem;
+    font-size:1.1rem;
+    list-style-type:none;
+}
+
+
