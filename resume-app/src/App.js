@@ -17,6 +17,9 @@ function App() {
           <Skill {...skill}></Skill>
         ))}
       </div>
+      <divc className='experience'>
+        
+      </divc>
     </div>
   );
 }
