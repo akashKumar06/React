@@ -1,6 +1,6 @@
 import "./Video.css";
 
-function Video({ id,title, channel = "Coder Dost", views, time, verified }) {
+function Video({ id,title, channel = "Coder Dost", views, time, verified,children}) {
   return (
     <div className="container">
       <div className="pic"></div>
@@ -9,6 +9,9 @@ function Video({ id,title, channel = "Coder Dost", views, time, verified }) {
       <div className="channel">{channel}{verified && '✅'}</div>
       <div className="views">
         {views} views <span>.</span> {time}
+      </div>
+      <div>
+        {children}
       </div>
     </div>
   );
