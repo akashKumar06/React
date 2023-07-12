@@ -5,8 +5,13 @@ import data from "./data/data";
 import Skill from "./components/Skill";
 import Header from "./components/Header";
 import Main from './components/Main'
+import CloseButton from "./components/CloseButton";
 
 function App() {
+  function handleClose(event){
+    alert("Tab will close");
+    event.view.close();
+  }
   return (
     <div className='container'>
       <Header />
@@ -17,9 +22,10 @@ function App() {
           <Skill {...skill}></Skill>
         ))}
       </div>
-      <divc className='experience'>
+      <div className='experience'>
         
-      </divc>
+      </div>
+      <CloseButton onClose={handleClose}/>
     </div>
   );
 }

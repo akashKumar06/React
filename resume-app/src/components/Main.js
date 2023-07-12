@@ -2,6 +2,9 @@ import image from "../data/img.jpg";
 import "../styles/Main.css";
 
 function Main() {
+  function handleClick(event){
+    console.log(event.view.print())
+  }
   return (
     <main>
       <div className='image'>
@@ -17,7 +20,7 @@ function Main() {
           Distinctio, expedita nostrum?
         </p>
         <div className='main-button'>
-          <button>Download CV</button>
+          <button onClick={handleClick}>Download CV</button>
           <button>Contact</button>
         </div>
       </div>

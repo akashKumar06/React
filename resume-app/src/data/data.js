@@ -39,18 +39,22 @@ const data = {
   ],
   skills:[
     {
+        key:1,
         skillName:'Copywrite',
         aboutSkill:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, distinctio rerum esse, libero, dolore a corrupti repellendus delectus perferendis eveniet optio in architecto odit officia quidem fugiat hic minus commodi.'
     },
     {
+        key:2,
         skillName:'Ecommerce',
         aboutSkill:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, distinctio rerum esse, libero, dolore a corrupti repellendus delectus perferendis eveniet optio in architecto odit officia quidem fugiat hic minus commodi.'
     },
     {
+        key:3,
         skillName:'Web Design',
         aboutSkill:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, distinctio rerum esse, libero, dolore a corrupti repellendus delectus perferendis eveniet optio in architecto odit officia quidem fugiat hic minus commodi.'
     },
     {
+        key:4,
         skillName:'Marketing',
         aboutSkill:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, distinctio rerum esse, libero, dolore a corrupti repellendus delectus perferendis eveniet optio in architecto odit officia quidem fugiat hic minus commodi.'
     }
