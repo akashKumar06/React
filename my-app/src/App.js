@@ -2,13 +2,11 @@ import Video from "./components/Video";
 import "./App.css";
 import videos from "./data/data.js";
 import PlayButton from "./components/PlayButton";
+import Counter from './components/Counter';
 
 function App() {
-  function handleClick(msg) {
-    console.log(msg);
-  }
   return (
-    <div className="App" onClick={()=>console.log('app')}>
+    <div className="App">
       <div>Hello</div>
       {videos.map((video) => (
         <Video
@@ -30,6 +28,7 @@ function App() {
           </PlayButton>
         </Video>
       ))}
+      <Counter/>
     </div>
   );
 }
