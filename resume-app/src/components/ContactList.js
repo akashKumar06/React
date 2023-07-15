@@ -1,6 +1,5 @@
 
 function ContactList(props){
-    console.log(props);
     return(
         <div>
             {props.contacts.map((contact) => (

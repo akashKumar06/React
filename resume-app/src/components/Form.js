@@ -1,51 +1,105 @@
-import React, { useState } from "react";
+import React from "react";
 
+// import DUMMY_DATA from '../data/DUMMY_DATA';
 import "../styles/Form.css";
+// import Education from "./forms/Education";
+// import Projects from "./forms/Projects";
+import PersonelData from "./forms/PersonelData";
+import Education from './forms/Education';
 
 function Form({ onSubmit }) {
-  const [contact, setContact] = useState({});
+  // const [contact, setContact] = useState({});
+  // const [personelInfo,setPersonelInfo] = useState(DUMMY_DATA.personelInfo);
+  // console.log(personelInfo);
+  // const [educationForm, setEducationForm] = useState([]);
+  // const [projectForm, setProjectForm] = useState([]);
+  // const [status, setStatus] = useState(false);
 
-  function handleChange(e) {
-    e.stopPropagation();
-    setContact((contact) => {
-      return {
-        ...contact,
-        id: Math.floor(Math.random() * 100 + 1),
-        [e.target.id]: e.target.value,
-      };
-    });
+  // function handleChange(e) {
+  //   e.stopPropagation();
+  //   console.log(e.target.value);
+  // setContact((contact) => {
+  //   return {
+  //     ...contact,
+  //     id: Math.floor(Math.random() * 100 + 1),
+  //     [e.target.id]: e.target.value,
+  //   };
+  // });
+  // }
+
+  // function handleClick(e) {
+  //   setStatus(true);
+  //   console.log("handle click clicked");
+  //   console.log(e.target.id);
+  //   if (e.target.id === "education") {
+  //     setEducationForm(
+  //       educationForm.concat(
+  //         <Education key={Math.floor(Math.random() * 100 + 1)} />
+  //       )
+  //     );
+  //   } else if (e.target.id === "project") {
+  //     setProjectForm(
+  //       projectForm.concat(
+  //         <Projects key={Math.floor(Math.random() * 100 + 1)} />
+  //       )
+  //     );
+  //   }
+  // }
+
+  // const [personelInfo,setPersonelInfo] = useState({});
+  function handlePersonelData(data) {
+    onSubmit(data,'personelInfo');
   }
 
-  function handleSubmit(e) {
-    console.log("handle submit in form executed");
-    e.preventDefault();
-    onSubmit(contact);
+  function handleEducation(data){
+    onSubmit(data,'education');
   }
 
   return (
+    <>
+    
     <div>
-      <form className="form" onSubmit={handleSubmit}>
-        <h2>Contact me</h2>
-        <div>
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" onChange={handleChange} />
-        </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" onChange={handleChange} />
-        </div>
-        <div>
-          <label htmlFor="phone">Phone No</label>
-          <input type="number" id="phone" onChange={handleChange} />
-        </div>
-        <div>
-          <label htmlFor="gender">Gender</label>
-          <select name="gender" id="gender" onChange={handleChange}>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
+      <PersonelData onSubmit={handlePersonelData}/>
+    </div>
+    <div>
+      <Education onSubmit={handleEducation}></Education>
+    </div>
+    </>
+    // <div>
+    //   <form className="form" onSubmit={handleSubmit}>
+    //     <h2>Resume Data</h2>
+
+    //     <fieldset>
+    //       <legend>Education</legend>
+    //       <button type="button" onClick={handleClick} id="education">
+    //         Add Education
+    //       </button>
+    //       {status ? educationForm : ""}
+    //     </fieldset>
+    //     <fieldset>
+    //       <legend>Projects</legend>
+    //       <button
+    //         type="button"
+    //         onClick={handleClick}
+    //         id="project"
+    //         name="project"
+    //       >
+    //         Add Projects
+    //       </button>
+    //       {status ? projectForm : ""}
+    //     </fieldset>
+    /*{ <fieldset>
+          <legend>Skills</legend>
+          <button type="button">Add Skills</button>
+        </fieldset>
+        <fieldset>
+          <legend>Experience</legend>
+          <button type="button">Add Experience</button>
+        </fieldset>
+        <fieldset>
+          <legend>Certificates</legend>
+          <button type="button">Add Certificates</button>
+        </fieldset>
         <div>
           <label htmlFor="prof">Profession</label>
           <select name="profession" id="profession" onChange={handleChange}>
@@ -55,22 +109,12 @@ function Form({ onSubmit }) {
             <option value="ReactJS Developer">ReactJS Developer</option>
             <option value="Angular Developer">Angular Developer</option>
           </select>
-        </div>
-        <div>
-          <label htmlFor="message">Message</label>
-          <textarea
-            name="message"
-            id="message"
-            cols="30"
-            rows="10"
-            onChange={handleChange}
-          ></textarea>
-        </div>
-        <div>
-          <button>Submit</button>
-        </div>
-      </form>
-    </div>
+        </div> }*/
+    //     <div>
+    //       <button>Submit</button>
+    //     </div>
+    //   </form>
+    // </div>
   );
 }
 

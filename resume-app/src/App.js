@@ -9,17 +9,22 @@ import Header from "./components/Header";
 import Main from './components/Main'
 import CloseButton from "./components/CloseButton";
 import Form from './components/Form';
-import ContactList from './components/ContactList';
-import dummyContacts from "./data/contacts";
+// import ContactList from './components/ContactList';
+// import dummyContacts from "./data/contacts";
 
 function App() {
 
-  const [contacts,setContacts] = useState(dummyContacts);
+  const [personelInfo,setPersonelInfo] = useState({});
+  const [education, setEducation] = useState([]);
 
-  function handleSubmit(contact){
-    setContacts((prevContacts) => {
-      return [...prevContacts,contact];
-    });
+  function handleSubmit(data,title){
+    if(title === 'personelInfo'){
+      setPersonelInfo(data);
+    }
+    else if(title === 'education'){
+      setEducation([...education,data]);
+      console.log(education);
+    }
   }
 
   function handleClose(event){
@@ -38,7 +43,15 @@ function App() {
         ))}
       </div>
       <Form onSubmit={handleSubmit}/>
-      <ContactList contacts={contacts}/>
+      <div>
+        {education.map((edu) => (
+          <div key={edu.id}>
+            <h3>School Name: {edu.schoolName}</h3>
+          </div>
+        ))}
+      </div>
+      <div>{personelInfo.name}</div>
+      {/* <ContactList contacts={contacts}/> */}
       <CloseButton onClose={handleClose}/>
     </div>
   );
