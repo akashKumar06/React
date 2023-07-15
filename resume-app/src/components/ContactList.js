@@ -1,11 +1,15 @@
-// import Contact from './Contact';
 
 function ContactList(props){
-    console.log('i am in contact list')
     console.log(props);
     return(
-        <>
-        </>
+        <div>
+            {props.contacts.map((contact) => (
+                <div key={contact.id}>
+                    <div>Name:{contact.name}</div>
+                    <div>Id:{contact.id}</div>
+                </div>
+            ))}
+        </div> 
     )
 
 }

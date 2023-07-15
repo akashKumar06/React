@@ -17,7 +17,9 @@ function App() {
   const [contacts,setContacts] = useState(dummyContacts);
 
   function handleSubmit(contact){
-    setContacts([...contacts,contact]);
+    setContacts((prevContacts) => {
+      return [...prevContacts,contact];
+    });
   }
 
   function handleClose(event){
@@ -36,9 +38,7 @@ function App() {
         ))}
       </div>
       <Form onSubmit={handleSubmit}/>
-      {contacts.map((contact) => <div key={contact.id}>
-        <div>{contact.name}</div>
-      </div>)}
+      <ContactList contacts={contacts}/>
       <CloseButton onClose={handleClose}/>
     </div>
   );

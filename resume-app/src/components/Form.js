@@ -5,23 +5,21 @@ import "../styles/Form.css";
 function Form({ onSubmit }) {
   const [contact, setContact] = useState({});
 
+  function handleChange(e) {
+    e.stopPropagation();
+    setContact((contact) => {
+      return {
+        ...contact,
+        id: Math.floor(Math.random() * 100 + 1),
+        [e.target.id]: e.target.value,
+      };
+    });
+  }
+
   function handleSubmit(e) {
     console.log("handle submit in form executed");
     e.preventDefault();
     onSubmit(contact);
-  }
-  function handleClick(e) {
-    console.log("handle click in form executed");
-    e.preventDefault();
-    setContact({
-      id: Math.floor(Math.random() * 100 + 1),
-      [e.target[0].id]: e.target[0].value,
-      [e.target[1].id]: e.target[1].value,
-      [e.target[2].id]: e.target[2].value,
-      [e.target[3].id]: e.target[3].value,
-      [e.target[4].id]: e.target[4].value,
-      [e.target[5].id]: e.target[5].value,
-    });
   }
 
   return (
@@ -30,19 +28,19 @@ function Form({ onSubmit }) {
         <h2>Contact me</h2>
         <div>
           <label htmlFor="name">Name</label>
-          <input type="text" id="name" />
+          <input type="text" id="name" onChange={handleChange} />
         </div>
         <div>
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" />
+          <input type="email" id="email" onChange={handleChange} />
         </div>
         <div>
           <label htmlFor="phone">Phone No</label>
-          <input type="number" id="phone" />
+          <input type="number" id="phone" onChange={handleChange} />
         </div>
         <div>
           <label htmlFor="gender">Gender</label>
-          <select name="gender" id="gender">
+          <select name="gender" id="gender" onChange={handleChange}>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Other">Other</option>
@@ -50,7 +48,7 @@ function Form({ onSubmit }) {
         </div>
         <div>
           <label htmlFor="prof">Profession</label>
-          <select name="profession" id="profession">
+          <select name="profession" id="profession" onChange={handleChange}>
             <option value="Student">Student</option>
             <option value="Frontend Developer">Frontend Developer</option>
             <option value="Backend Developer">Backend Developer</option>
@@ -60,10 +58,16 @@ function Form({ onSubmit }) {
         </div>
         <div>
           <label htmlFor="message">Message</label>
-          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+          <textarea
+            name="message"
+            id="message"
+            cols="30"
+            rows="10"
+            onChange={handleChange}
+          ></textarea>
         </div>
         <div>
-          <button onClick={handleClick}>Submit</button>
+          <button>Submit</button>
         </div>
       </form>
     </div>
