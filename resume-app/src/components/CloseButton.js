@@ -5,7 +5,7 @@ function CloseButton({onClose}){
         onClose(event);
     }
     return(
-        <button onClick={handleClick}>Close Window</button>
+        <button onClick={handleClick} className='close-button'>Close Window</button>
     )
 }
 

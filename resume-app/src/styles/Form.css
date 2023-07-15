@@ -1,0 +1,23 @@
+.form{
+    width:20rem;
+    margin:4rem auto;
+    padding: 2rem 2rem;
+    border: 1px solid black;
+    border-radius:0.7rem;
+}
+
+.form h2{
+    text-align: center;
+}
+
+.form div{
+    margin: 0.8rem;
+}
+
+.form input {
+    width:100%;
+}
+
+.form textarea{
+    width:100%;
+}
