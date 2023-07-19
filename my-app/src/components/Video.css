@@ -6,6 +6,15 @@
     position:relative;
 }
 
+.container.dark-mode{
+    color:white
+}
+
+
+.container.light-mode{
+    color: black;   
+}
+
 .pic img{
     width: 100%;
 }
@@ -14,7 +23,6 @@
     font-weight: bold;
     font-size:1.2em;
     margin-bottom: 1em;
-    color:white;
 }
 
 .channel, .views{
