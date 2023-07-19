@@ -9,15 +9,16 @@ const initialState = {
   views:''
 };
 
-function AddVideo({ onAddVideo, updateVideo, editableVideo }) {
+function AddVideo({ dispatch, editableVideo }) {
   const [video, setVideo] = useState(initialState);
+  // const [editStatus,setEditStatus] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
     if(editableVideo){
-      updateVideo(video);
+      dispatch({type:'UPDATE',payload:video});
     } else {
-      onAddVideo(video);
+      dispatch({type: 'ADD', payload: video})
     }
     
     setVideo(initialState);
