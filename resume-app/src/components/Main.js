@@ -2,9 +2,6 @@ import image from "../data/img.jpg";
 import "../styles/Main.css";
 
 function Main({data}) {
-  // function handleClick(event){
-  //   console.log(event.view.print())
-  // }
   return (
     <main>
       <div className='image'>
