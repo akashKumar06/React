@@ -5,13 +5,15 @@ import React, { useReducer, useState } from "react";
 
 import videoDB from "./data/data.js";
 import ThemeContext from "./context/ThemeContext";
+import VideosContext from "./context/VideosContext";
+import VideoDispatchContext from "./context/VideoDispatchContext";
+import Counter from './components/Counter';
 
 function App() {
   const [editableVideo, setEditableVideo] = useState(null);
-  const [mode,setMode] = useState('dark-mode');
+  const [mode, setMode] = useState("dark-mode");
 
   // const themeContext = useContext(ThemeContext);
-
 
   function videoReducer(videos, action) {
     switch (action.type) {
@@ -64,11 +66,22 @@ function App() {
 
   return (
     <ThemeContext.Provider value={mode}>
-      <button onClick={()=>{setMode(mode === 'dark-mode' ? 'light-mode':'dark-mode')}}>Mode</button>
-      <div className={`App ${mode}`}>
-        <AddVideos dispatch={dispatch} editableVideo={editableVideo} />
-        <VideoList dispatch={dispatch} editVideo={editVideo} videos={videos} />
-      </div>
+      <VideosContext.Provider value={videos}>
+        <VideoDispatchContext.Provider value={dispatch}>
+          <button
+            onClick={() => {
+              setMode(mode === "dark-mode" ? "light-mode" : "dark-mode");
+            }}
+          >
+            Mode
+          </button>
+          <div className={`App ${mode}`}>
+            <AddVideos editableVideo={editableVideo} />
+            <VideoList editVideo={editVideo} />
+          </div>
+          <Counter/>
+        </VideoDispatchContext.Provider>
+      </VideosContext.Provider>
     </ThemeContext.Provider>
   );
 }

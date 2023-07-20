@@ -1,10 +1,22 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import "./Video.css";
 import ThemeContext from "../context/ThemeContext";
+import useVideoDispatch from "../hooks/VideoDispatch";
 
-function Video({ id,title, channel = "Coder Dost", views, time, verified,children,dispatch,editVideo}) {
+function Video({ id,title, channel = "Coder Dost", views, time, verified,children,editVideo}) {
 
   const theme = useContext(ThemeContext);
+  const dispatch = useVideoDispatch();
+
+  // useEffect(()=>{
+  //   const idx = setInterval(()=>{
+  //     console.log('video playing', id);
+  //   },2000)
+  //   return ()=>{
+  //     clearInterval(idx);
+  //   }
+  // },[id])
+  
   return (
     <div className={`container ${theme}`}>
       <button className='close' onClick={() => dispatch({type: 'DELETE', payload: id})}>X</button>
