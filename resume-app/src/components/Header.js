@@ -1,11 +1,11 @@
 import '../styles/Header.css';
 
-function Header() {
+function Header({name}) {
   return (
     <header>
       <nav>
         <div>
-          <b>Akash</b> Kumar
+          <b>{name}</b>
         </div>
         <ul>
           <li>About Me</li>

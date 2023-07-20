@@ -1,10 +1,10 @@
 import image from "../data/img.jpg";
 import "../styles/Main.css";
 
-function Main() {
-  function handleClick(event){
-    console.log(event.view.print())
-  }
+function Main({data}) {
+  // function handleClick(event){
+  //   console.log(event.view.print())
+  // }
   return (
     <main>
       <div className='image'>
@@ -12,7 +12,10 @@ function Main() {
       </div>
       <div className='main-content'>
         <h3>Frontend-Developer</h3>
-        <h1>Akash Kumar</h1>
+        <h1>{data.name}</h1>
+        <h2>{data.phone}</h2>
+        <h2>{data.email}</h2>
+        <p>{data.address}</p>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis
           necessitatibus quis modi blanditiis labore est similique delectus
@@ -20,7 +23,7 @@ function Main() {
           Distinctio, expedita nostrum?
         </p>
         <div className='main-button'>
-          <button onClick={handleClick}>Download CV</button>
+          <button>Download CV</button>
           <button>Contact</button>
         </div>
       </div>

@@ -1,52 +1,48 @@
-import React,{useState} from 'react';
+import React, { useState } from "react";
 
+function PersonelData({ onDataSubmit }) {
+  const [data, setData] = useState({});
 
-function PersonelData({onSubmit}) {
-    const [personelData,setPersonelData] = useState({});
-    function handleChange(event){
-        setPersonelData({
-            ...personelData,
-            id: Math.floor(Math.random()*100 + 1),
-            [event.target.id]: event.target.value
-        })
-    }
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(data);
+    onDataSubmit(data);
+  }
 
-    function handleSubmit(event){
-        event.preventDefault();
-        onSubmit(personelData);
-    }
+  function handleChange(e) {
+    setData({...data, [e.target.name]: e.target.value });
+  }
+
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <fieldset>
-          <legend>Personel Details</legend>
-          <div>
-            <label htmlFor="name">Name</label>
-            <input type="text" id="name" onChange={handleChange} />
-          </div>
-          <div>
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" onChange={handleChange} />
-          </div>
-          <div>
-            <label htmlFor="phone">Phone No</label>
-            <input type="number" id="phone" onChange={handleChange} />
-          </div>
-          <div>
-            <label htmlFor="gender">Gender</label>
-            <select name="gender" id="gender" onChange={handleChange}>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div>
-            <button>Add</button>
-          </div>
-          
-        </fieldset>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <fieldset>
+        <legend>Personel Data</legend>
+        <div>
+          <label htmlFor="name">Name</label>
+          <input type="text" id="name" name="name" onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="phone">Phone No.</label>
+          <input type="text" id="phone" name="phone" onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="email">Email Address</label>
+          <input type="text" id="email" name="email" onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="address">Address</label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <button>Add Personel Data</button>
+        </div>
+      </fieldset>
+    </form>
   );
 }
 

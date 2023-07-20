@@ -1,12 +1,20 @@
-import '../styles/skills.css'
+import "../styles/skills.css";
 
-function Skill({skillName,aboutSkill}){
-    return (
-        <div className='skill'>
-            <h3>{skillName}</h3>
-            <div>{aboutSkill}</div>
-        </div>
-    )
+function Skill({ skills }){
+  console.log(skills);
+  return (
+    <div>
+      {skills.map((skill) => {
+        return (
+          <div className="skill" key={skill.id}>
+            <h3>{skill.skillName}</h3>
+            <div>{skill.techUsed}</div>
+            <div>{skill.desc}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 export default Skill;
