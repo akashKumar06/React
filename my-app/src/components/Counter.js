@@ -11,9 +11,17 @@ function Counter(){
         console.log(num);
         console.log(number);
     }
+
+    function fib(n){
+        if(n === 1 || n ===2){
+            return 1
+        }
+        return fib(n-1) + fib(n-2);
+    }
+
     return(
         <>
-        <h1 style={{color:'Black'}}>{number}</h1>
+        <h1 style={{color:'Black'}}>{number} | {fib(5)}</h1>
         <button onClick={handleClick}>Increment</button>
         </>
     )

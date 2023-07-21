@@ -69,6 +69,7 @@ function App() {
     <ThemeContext.Provider value={mode}>
       <VideosContext.Provider value={videos}>
         <VideoDispatchContext.Provider value={dispatch}>
+          <Counter/>
           <button
             onClick={() => {
               setMode(mode === "dark-mode" ? "light-mode" : "dark-mode");
