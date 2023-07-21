@@ -1,9 +1,9 @@
-import {useEffect} from 'react'
+import { useEffect } from "react";
 import Video from "./Video";
 import PlayButton from "./PlayButton";
 import useVideos from "../hooks/Videos";
 import axios from "axios";
-import useVideoDispatch from '../hooks/VideoDispatch';
+import useVideoDispatch from "../hooks/VideoDispatch";
 
 function VideoList({ editVideo }) {
   const url = "https://my.api.mockaroo.com/video.json?key=81ac27d0";
@@ -13,19 +13,18 @@ function VideoList({ editVideo }) {
 
   async function handleClick() {
     const res = await axios.get(url);
-    console.log('Get Videos', res.data);
-    dispatch({type:'LOAD',payload:res.data});
+    console.log("Get Videos", res.data);
+    dispatch({ type: "LOAD", payload: res.data });
   }
-  
 
-  useEffect(()=>{
+  useEffect(() => {
     async function getVideos() {
       const res = await axios.get(url);
-      console.log('Get Videos', res.data);
-      dispatch({type:'LOAD',payload:res.data});
+      console.log("Get Videos", res.data);
+      dispatch({ type: "LOAD", payload: res.data });
     }
     getVideos();
-  },[dispatch])
+  }, [dispatch]);
 
   return (
     <>
