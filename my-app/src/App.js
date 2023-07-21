@@ -1,7 +1,7 @@
 import "./App.css";
 import AddVideos from "./components/AddVideos";
 import VideoList from "./components/VideoList";
-import React, { useReducer, useState } from "react";
+import React, { useCallback, useReducer, useState } from "react";
 
 import ThemeContext from "./context/ThemeContext";
 import VideosContext from "./context/VideosContext";
@@ -53,9 +53,9 @@ function App() {
   //   // console.log(id);
   // }
 
-  function editVideo(id) {
+  const editVideo = useCallback(function editVideo(id) {
     setEditableVideo(videos.find((video) => video.id === id));
-  }
+  },[videos])
 
   // function updateVideo(video){
   //   dispatch({type:'UPDATE',payload:video});
@@ -69,7 +69,6 @@ function App() {
     <ThemeContext.Provider value={mode}>
       <VideosContext.Provider value={videos}>
         <VideoDispatchContext.Provider value={dispatch}>
-          <Counter/>
           <button
             onClick={() => {
               setMode(mode === "dark-mode" ? "light-mode" : "dark-mode");
