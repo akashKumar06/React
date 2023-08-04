@@ -4,8 +4,8 @@ import classes from "./Button.module.css";
 const Button = (props) => {
   return (
     <div className={classes.actions}>
-      <button type="submit">
-        +Add
+      <button type={props.type}>
+        {props.children}
       </button>
     </div>
   );

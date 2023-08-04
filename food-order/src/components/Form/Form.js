@@ -28,7 +28,7 @@ const Form = (props) => {
           onChange={changeHandler}
         />
       </div>
-      <Button></Button>
+      <Button type="submit">+Add</Button>
     </form>
   );
 };

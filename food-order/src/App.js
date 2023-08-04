@@ -26,6 +26,17 @@ const orderReducer = (state, action) => {
     const newItem = { ...foodItem, qty: +action.payload.qty };
     return [...state, newItem];
   }
+  else if(action.type === 'ITEM_MINUS'){
+    const index = state.findIndex((item) => item.id === action.payload);
+    state[index].qty -= 1;
+    return [...state];
+  }else if(action.type === 'ITEM_PLUS'){
+    const index = state.findIndex((item) => item.id === action.payload);
+    state[index].qty += 1;
+    return [...state];
+  }else{
+    console.log("desired action is not done");
+  }
 };
 
 function App() {

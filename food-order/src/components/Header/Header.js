@@ -16,11 +16,19 @@ const Header = (props) => {
   const clickHandler = () => {
     setStatus(true);
   };
+  
+  const closeHandler = () => {
+    setStatus(false);
+  }
+
+  const orderHandler = (items) => {
+    console.log("ordering......",items);
+  }
 
   return (
     <React.Fragment>
       {status === true && <div className={classes.backdrop}></div>}
-      {status === true && <CartModal></CartModal>}
+      {status === true && <CartModal onClose={closeHandler} onOrder={orderHandler} items={foodCtx.order}></CartModal>}
       <div className={classes.header} onClick={clickHandler}>
         <h1>ReactMeals</h1>
         <div>
