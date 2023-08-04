@@ -33,7 +33,7 @@ function App() {
     }
   }
 
-  const [videos, dispatch] = useReducer(videoReducer, []);
+  const [videos, dispacth] = useReducer(videoReducer, []);
 
   // const [videos, setVideos] = useState(videoDB);
 

@@ -1,0 +1,30 @@
+.items-container{
+    width: 50vw;
+    padding:2rem;
+    border-radius: 20px;
+    margin: auto;
+    background-color: #ccc;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(68, 82, 68);
+
+}
+.items{
+    padding: 0.5rem 1rem;
+}
+.items h1{
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+.items p{
+    margin: 0.5rem 0;
+    font-style: italic;
+}
+
+.items h2{
+    font-size: 1.2rem;
+    color:rgb(117, 96, 96);
+}

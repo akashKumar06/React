@@ -1,0 +1,32 @@
+.header{
+    position: sticky;
+    left:0;
+    top:0;
+    width:100%;
+    height:6rem;
+    padding: 0.5rem 5rem;
+    background-color: rgb(117, 96, 96);
+
+    color:#ccc;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header div{
+    font-size: 1.7rem;
+    padding: 0.5rem 2rem;
+    border-radius: 25px;
+    font-weight: 800;
+    background-color: rgb(82, 67, 67);
+    margin-right: 10rem;
+    cursor: pointer;
+}
+
+.qty{
+    display: inline-block;
+    background-color: rgb(117, 96, 96);
+    padding: 0.1rem 1rem;
+    border-radius: 20px;
+}

@@ -1,0 +1,17 @@
+.actions{
+    margin:0.5rem auto;
+}
+.actions button{
+    color: #e4e4e4;
+    border: none;
+    cursor: pointer;
+    font-size: large;
+    background-color: rgb(117, 96, 96);
+    padding: 0.1rem 1rem;
+    border-radius: 1rem;
+}
+
+.actions button:hover{
+    background-color: rgb(85, 70, 70);
+    box-shadow: 1px 1px 2px rgb(85, 70, 70);
+}
