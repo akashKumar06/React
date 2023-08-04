@@ -1,41 +1,19 @@
-import React, { useReducer } from "react";
+import React, { useContext} from "react";
 
 import classes from "./FoodItems.module.css";
-
+import FoodContext from "../../Context/FoodContext";
 import Form from "../Form/Form";
 
-const FoodData = [
-  {
-    id: "1",
-    name: "Sushi",
-    desc: "Finnest fish and veggies",
-    price: 22.99,
-  },
-  {
-    id: "2",
-    name: "Burger",
-    desc: "American, Raw, Meaty",
-    price: 18.99,
-  },
-];
-
-const orderReducer = (state, action) => {
-  if(action.type === 'ADD_QTY'){
-    return [...state, {...action.payload}];
-  }
-}
-
 const FoodItems = (props) => {
-  const [order,dispatchOrder] = useReducer(orderReducer,[]);
+  const foodCtx = useContext(FoodContext);
 
-  const submitHandler = (id,qty) => {
-    const foodItem = FoodData.find((food) => food.id === id);
-    const newItem = {...foodItem,qty:qty};
-    dispatchOrder({type:'ADD_QTY',payload: newItem});
-  }
+  const submitHandler = (id, qty) => {
+    foodCtx.dispatch({ type: "ADD_QTY", payload: {id:id,qty:qty}});
+  };
+
   return (
     <div className={classes["items-container"]}>
-      {FoodData.map((food) => {
+      {props.FoodData.map((food) => {
         return (
           <div className={classes.container} key={food.id}>
             <div className={classes.items}>

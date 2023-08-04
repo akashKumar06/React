@@ -6,7 +6,7 @@ import FoodItems from './FoodItems';
 const FoodSection = props => {
     return(
         <div className={classes.section}>
-            <FoodItems></FoodItems>            
+            <FoodItems FoodData={props.foodData}></FoodItems>            
         </div>
     )
 }
