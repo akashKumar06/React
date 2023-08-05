@@ -8,6 +8,7 @@ const Header = (props) => {
   const [status, setStatus] = useState(false);
   const foodCtx = useContext(FoodContext);
   const order = foodCtx.order;
+
   let qty = 0;
   order.forEach((element) => {
     qty += element.qty;
@@ -22,7 +23,8 @@ const Header = (props) => {
   }
 
   const orderHandler = (items) => {
-    console.log("ordering......",items);
+    setStatus(false);
+    alert("Items are reaching at your destination");
   }
 
   return (

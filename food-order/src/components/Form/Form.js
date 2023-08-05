@@ -4,7 +4,7 @@ import classes from "./Form.module.css";
 import Button from "./Button";
 
 const Form = (props) => {
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -25,6 +25,7 @@ const Form = (props) => {
           name="qty"
           min="0"
           max="5"
+          value={qty}
           onChange={changeHandler}
         />
       </div>

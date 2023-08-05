@@ -4,6 +4,13 @@ import classes from "./FoodItems.module.css";
 import FoodContext from "../../Context/FoodContext";
 import Form from "../Form/Form";
 
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "INR",
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
 const FoodItems = (props) => {
   const foodCtx = useContext(FoodContext);
 
@@ -19,7 +26,7 @@ const FoodItems = (props) => {
             <div className={classes.items}>
               <h1>{food.name}</h1>
               <p>{food.desc}</p>
-              <h2>${food.price}</h2>
+              <h2>{formatter.format(food.price)}</h2>
             </div>
             <Form onSubmit={submitHandler} id={food.id}></Form>
           </div>
