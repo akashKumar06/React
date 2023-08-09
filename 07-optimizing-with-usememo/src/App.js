@@ -12,6 +12,7 @@ function App() {
   }, []);
 
   const listItems = useMemo(() => [5, 3, 1, 10, 9], []);
+  
   return (
     <div className="app">
       <DemoList title={listTitle} items={listItems} />
