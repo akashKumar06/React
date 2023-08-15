@@ -1,32 +1,46 @@
-import useCustomHook from "../hooks/use-hook";
+import useInput from "../hooks/use-input";
+
+const isNotEmpty = (value) => value.trim() !== "";
+const isEmail = (value) => value.includes("@");
 
 const BasicForm = (props) => {
   const {
     value: firstName,
-    changeHandler: firstNameChangeHandler,
+    isValid: firstNameIsValid,
     hasError: firstNameHasError,
-    blurHandler: firstNameBlurHandler,
+    valueChangeHandler: firstNameChangeHandler,
+    inputBlurHandler: firstNameBlurHandler,
     reset: resetFirstName,
-  } = useCustomHook((value) => value.trim().length > 0);
+  } = useInput(isNotEmpty);
 
   const {
     value: lastName,
-    changeHandler: lastNameChangeHandler,
+    isValid: lastNameIsValid,
     hasError: lastNameHasError,
-    blurHandler: lastNameBlurHandler,
+    valueChangeHandler: lastNameChangeHandler,
+    inputBlurHandler: lastNameBlurHandler,
     reset: resetLastName,
-  } = useCustomHook((value) => value.trim().length > 0);
+  } = useInput(isNotEmpty);
 
   const {
     value: email,
-    changeHandler: emailChangeHandler,
+    isValid: emailIsValid,
     hasError: emailHasError,
-    blurHandler: emailBlurHandler,
+    valueChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailBlurHandler,
     reset: resetEmail,
-  } = useCustomHook((value) => value.includes("@"));
+  } = useInput(isEmail);
 
+  let formIsValid = false;
+
+  if (firstNameIsValid && lastNameIsValid && emailIsValid) {
+    formIsValid = true;
+  }
   const formSubmitHandler = (event) => {
     event.preventDefault();
+    if (!formIsValid) {
+      return;
+    }
     console.log(firstName);
     console.log(lastName);
     console.log(email);
@@ -65,7 +79,7 @@ const BasicForm = (props) => {
         <div className={lastNameInputClasses}>
           <label htmlFor="lname">Last Name</label>
           <input
-          value={lastName}
+            value={lastName}
             type="text"
             id="lname"
             onChange={lastNameChangeHandler}
@@ -79,18 +93,16 @@ const BasicForm = (props) => {
       <div className={emailInputClasses}>
         <label htmlFor="email">E-Mail Address</label>
         <input
-        value={email}
+          value={email}
           type="email"
           id="email"
           onChange={emailChangeHandler}
           onBlur={emailBlurHandler}
         />
-        {emailHasError && (
-            <p className="error-text">Enter a valid email.</p>
-          )}
+        {emailHasError && <p className="error-text">Enter a valid email.</p>}
       </div>
       <div className="form-actions">
-        <button>Submit</button>
+        <button disabled={!formIsValid}>Submit</button>
       </div>
     </form>
   );
