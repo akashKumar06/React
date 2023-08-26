@@ -1,5 +1,7 @@
 // import { createStore } from "redux";
-import { createSlice, configureStore } from "@reduxjs/toolkit";
+import {configureStore } from "@reduxjs/toolkit";
+import authReducer from "./auth";
+import counterReducer from "./counter";
 
 /* 
     while returning the object we return a brand new state object snapshot, which redux uses to replace with existing state. will not be merged with existing state that will overwrite the existing state.
@@ -21,30 +23,12 @@ import { createSlice, configureStore } from "@reduxjs/toolkit";
     - configureStore() => same as createStore. 
 */
 
-const initialState = { counter: 0, showCounter: true };
 
-const counterSlice = createSlice({
-  name: "counter",
-  initialState: initialState,
-  reducers: {
-    increment(state) {
-      state.counter++;
-    },
-    decrement(state) {
-      state.counter--;
-    },
-    toggleCounter(state) {
-      state.showCounter = !state.showCounter;
-    },
-    increase(state, action) {
-      state.counter += action.payload;
-    },
-  },
-});
+
+// when working with multiple slices, there must be only one configureStore
 
 const store = configureStore({
-  reducer: counterSlice.reducer,
+  reducer: { counter: counterReducer, auth: authReducer },
 });
 
-export const counterActions = counterSlice.actions;
 export default store;
